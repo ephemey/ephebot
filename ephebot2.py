@@ -29,7 +29,7 @@ async def kick(ctx, user: discord.Member):
     await bot.say(":boot: Bye, {}.".format(user.name))
     await bot.kick(user)
 
-<<<<<<< HEAD
+
 @bot.command(pass_context=True)
 async def on_message(message):
     if message.contet == "cookie":
@@ -41,6 +41,3 @@ async def on_message(message):
         await bot.send_message(message.channel, "NSFW NSFW NSFW NSFW NSFW NSFW NSFW NSFW NSFW")
 
 bot.run("NDA4NDYwOTU0NzgzNzExMjMy.DVadMQ.XR_SaTOX9DzljLGtOr5CV1MoN80")
-=======
-bot.run("NDA4NDYwOTU0NzgzNzExMjMy.DVadMQ.XR_SaTOX9DzljLGtOr5CV1MoN80")
->>>>>>> origin/master
