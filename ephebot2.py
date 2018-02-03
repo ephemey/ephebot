@@ -32,12 +32,12 @@ async def kick(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def on_message(message):
-    if message.contet == "cookie":
+    if message.content == "cookie":
         await bot.send_message(message.channel, ":cookie:")
 
 @bot.command(pass_context=True)
 async def on_message2(message):
-    if message.contet == "!!nsfw":
+    if message.content == "!!nsfw":
         await bot.send_message(message.channel, "NSFW NSFW NSFW NSFW NSFW NSFW NSFW NSFW NSFW")
 
 bot.run("NDA4NDYwOTU0NzgzNzExMjMy.DVadMQ.XR_SaTOX9DzljLGtOr5CV1MoN80")
