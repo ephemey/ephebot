@@ -3,6 +3,11 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 
+token = 'NDA4NDYwOTU0NzgzNzExMjMy.DVadMQ.XR_SaTOX9DzljLGtOr5CV1MoN80'
+nsfw_msg = ':pepeRAGE: :pepeRAGE: :pepeRAGE: :regional_indicator_n: :regional_indicator_s: :regional_indicator_f: :regional_indicator_w: :pepeRAGE: :pepeRAGE: :pepeRAGE:'
+
+logging.basicConfig(level=logging.WARNING)
+
 bot = commands.Bot(command_prefix=';')
 
 @bot.event
@@ -20,15 +25,20 @@ async def ping(ctx):
     await bot.say(":ping_pong: pong!!")
     print("user has pinged")
 
-@bot.command(pass_context=True)
-async def meow(ctx):
-    await bot.say("nyaaaa")
-    print("nyaaaaa")
+# @bot.command(pass_context=True)
+# async def meow(ctx):
+#     await bot.say("nyaaaa")
+#     print("nyaaaaa")
 
-@bot.command(pass_context=True)
-async def nsfw(ctx):
-    await bot.say("WARNING NSFW WARNING NSFW WARNING NSFW WARNING NSFW WARNING NSFW")
-    print("NSFW af")
+@bot.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == bot.user:
+        return
+
+    # respond if NSFW content is posted and labeled '!!nsfw'
+    if '!!nsfw' in message.content:
+        await bot.send_message(message.channel, nsfw_msg)
 
 # @bot.command(pass_context=True)
 # async def kick(ctx, user: discord.Member):
@@ -36,5 +46,5 @@ async def nsfw(ctx):
 #     await bot.kick(user)
 
 
-bot.run("NDA4NDYwOTU0NzgzNzExMjMy.DVadMQ.XR_SaTOX9DzljLGtOr5CV1MoN80")
+bot.run(token)
 
