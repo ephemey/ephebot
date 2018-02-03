@@ -8,13 +8,13 @@ bot = commands.Bot(command_prefix=';')
 
 @bot.event
 async def on_ready():
-    print ("Username: " + bot.user.name)
-    print ("ID: " + bot.user.id)
+    print("Username: " + bot.user.name)
+    print("ID: " + bot.user.id)
 
 @bot.command(pass_context=True)
 async def ping(ctx):
     await bot.say(":ping_pong: pong!!")
-    print ("user has pinged")
+    print("user has pinged")
 
 # @bot.command(pass_context=True)
 # async def info(ctx, user: discord.Member):
@@ -33,6 +33,7 @@ async def kick(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def on_message(message):
     if message.content == "cookie":
+        print('cookie incoming')
         await bot.say(message.channel, ":cookie:")
 
 @bot.command(pass_context=True)
