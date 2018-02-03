@@ -32,8 +32,9 @@ async def kick(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def on_message(message):
+    print(message)
     if message.content == "cookie":
-        print('cookie incoming')
+        print('cookie')
         await bot.say(message.channel, ":cookie:")
 
 @bot.command(pass_context=True)
