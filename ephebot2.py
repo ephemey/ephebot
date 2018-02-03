@@ -30,14 +30,14 @@ async def kick(ctx, user: discord.Member):
     await bot.kick(user)
 
 
-@bot.event(pass_context=True)
+@bot.event
 async def on_message(message):
     print(message)
     if message.content == "cookie":
         print('cookie')
         await bot.say(message.channel, ":cookie:")
 
-@bot.event(pass_context=True)
+@bot.event
 async def on_message2(message):
     if message.content == "!!nsfw":
         await bot.say(message.channel, "NSFW NSFW NSFW NSFW NSFW NSFW NSFW NSFW NSFW")
