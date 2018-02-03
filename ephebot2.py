@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
+import logging
 
 token = 'NDA4NDYwOTU0NzgzNzExMjMy.DVadMQ.XR_SaTOX9DzljLGtOr5CV1MoN80'
 nsfw_msg = ':pepeRAGE: :pepeRAGE: :pepeRAGE: :regional_indicator_n: :regional_indicator_s: :regional_indicator_f: :regional_indicator_w: :pepeRAGE: :pepeRAGE: :pepeRAGE:'
