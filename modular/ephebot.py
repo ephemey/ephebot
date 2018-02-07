@@ -26,7 +26,7 @@ async def on_ready():
 # load module
 @bot.command()
 async def load(arg):
-    importlib.import_module(arg)
+    importlib.__import__(arg)
     importlib.invalidate_caches()
     await bot.say("Loaded " + arg)
     print("Loaded " + arg)
