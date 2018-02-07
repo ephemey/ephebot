@@ -34,7 +34,7 @@ async def load(arg):
     # module not found or otherwise
     except ImportError as err:
         await bot.say("Error:" + err)
-        print('Error:', err)
+        print("Error:" + err)
 
 # unload module
 @bot.command()
