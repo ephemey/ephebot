@@ -25,7 +25,8 @@ async def on_ready():
 # load module
 @bot.command()
 async def load(arg):
-    await import arg
+    await importlib.import_module(arg)
+    await importlib.invalidate_caches()
     await bot.say("Loaded " + arg)
     print("Loaded " + arg)
 
@@ -44,6 +45,7 @@ async def unload(arg):
 @bot.command()
 async def reload(arg):
     await importlib.reload(arg)
+    await importlib.invalidate_caches()
     await bot.say("Reloaded " + arg)
     print("Reloaded " + arg)
 
