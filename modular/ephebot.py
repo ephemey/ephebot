@@ -26,12 +26,15 @@ async def on_ready():
 # load module
 @bot.command()
 async def load(arg):
-    importlib.import_module(arg.*)
-    importlib.invalidate_caches()
-    await bot.say("Loaded " + arg)
-    print("Loaded " + arg)
-
-    # something something module not found exception
+    try:
+        module = importlib.import_module(arg)
+        importlib.invalidate_caches()
+        await bot.say("Loaded " + arg)
+        print(module)
+    # module not found or otherwise
+    except ImportError as err:
+        await bot.say("Error:" + err)
+        print('Error:', err)
 
 # unload module
 @bot.command()
