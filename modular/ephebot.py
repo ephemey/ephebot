@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import importlib
+import sys
 import logging
 
 # logging
@@ -35,7 +36,7 @@ async def load(arg):
 # unload module
 @bot.command()
 async def unload(arg):
-    await del arg
+    await sys.modules.pop(arg)
     await bot.say(arg + "unloaded")
     print(arg + "unloaded")
 
