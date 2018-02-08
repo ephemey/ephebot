@@ -1,10 +1,8 @@
-import discord
+import discord, asyncio, logging
 from discord.ext import commands
 from discord.ext.commands import Bot
-import asyncio
-import importlib
-import sys
-import logging
+
+import config
 
 # logging
 logging.basicConfig(level=logging.WARNING)
@@ -23,37 +21,15 @@ async def on_ready():
     print("ID: " + bot.user.id)
     print("Connected")
 
-# load module
-@bot.command()
-async def load(arg):
-    try:
-        module = importlib.import_module(arg)
-        importlib.invalidate_caches()
-        await bot.say("Loaded " + arg)
-        print(module)
-    # module not found or otherwise
-    except ImportError as err:
-        await bot.say("Error:" + err)
-        print("Error:" + err)
+# enable module
+async def enable(module):
+    if module.flag == true:
 
-# unload module
-@bot.command()
-async def unload(arg):
-    sys.modules.pop(arg)
-    await bot.say(arg + "unloaded")
-    print(arg + "unloaded")
 
-    # something something module not loaded exception
 
-#reload module
-@bot.command()
-async def reload(arg):
-    importlib.reload(arg)
-    importlib.invalidate_caches()
-    await bot.say("Reloaded " + arg)
-    print("Reloaded " + arg)
+# disable module
 
-    # something something module not found exception
+# reload module ..?
 
 # bot restart command ..?
 
