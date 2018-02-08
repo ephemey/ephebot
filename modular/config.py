@@ -1,2 +1,5 @@
 
-config = {}
+config = {
+    'ping':0,
+    
+}

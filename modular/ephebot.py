@@ -21,9 +21,21 @@ async def on_ready():
     print("ID: " + bot.user.id)
     print("Connected")
 
+
 # enable module
+@bot.command
 async def enable(module):
-    if module.flag == true:
+    if module in config: # check if the module is in config.py dictionary
+        if config[module] == 0: # check if the module is disabled
+            config[module] = 1 # enable the module
+            await bot.say('Enabled ' + module)
+            print('Enabled ' + module)
+        else: # config[module] == 1
+            await bot.say(module + ' is already enabled')
+    else: # module is not in config.py dictionary
+        await bot.say(module + ' was not found in config.py')
+
+
 
 
 
