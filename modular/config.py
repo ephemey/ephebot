@@ -1,5 +1,5 @@
 
-config = {
+modlist = {
     'ping':0,
     
 }

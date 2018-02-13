@@ -1,11 +1,10 @@
 import discord, asyncio, logging
 from discord.ext import commands
 from discord.ext.commands import Bot
-
 import config
 
 # logging
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.INFO)
 
 # ask for token
 # token = input('bot token: ')
@@ -23,20 +22,21 @@ async def on_ready():
 
 
 # enable module
-@bot.command
-async def enable(module):
-    if module in config: # check if the module is in config.py dictionary
-        if config[module] == 0: # check if the module is disabled
-            config[module] = 1 # enable the module
-            await bot.say('Enabled ' + module)
-            print('Enabled ' + module)
-        else: # config[module] == 1
-            await bot.say(module + ' is already enabled')
-    else: # module is not in config.py dictionary
-        await bot.say(module + ' was not found in config.py')
-
-
-
+@bot.command()
+async def enable(mod = ''):
+    mod = str(mod)
+    if len(mod) == 0: # check if mod is empty
+        await bot.say(';enable <module> to enable') # help
+    else:
+        if mod in config.modlist: # check if the module is in config.py dictionary
+            if config.modlist[mod] == 0: # check if the module is disabled
+                config.modlist[mod] = 1 # enable the module
+                await bot.say('Enabled ' + mod)
+                print('Enabled ' + mod)
+            else: # modlist[mod] == 1
+                await bot.say(mod + ' is already enabled')
+        else: # module is not in config.py dictionary
+            await bot.say(mod + ' was not found in config.py')
 
 
 # disable module
