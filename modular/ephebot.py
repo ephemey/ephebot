@@ -1,7 +1,8 @@
 import discord, asyncio, logging
 from discord.ext import commands
 from discord.ext.commands import Bot
-import config
+from config import *
+
 
 # logging
 logging.basicConfig(level=logging.INFO)
@@ -28,9 +29,9 @@ async def enable(mod = ''):
     if len(mod) == 0: # check if mod is empty
         await bot.say(';enable <module> to enable') # help
     else:
-        if mod in config.modlist: # check if the module is in config.py dictionary
-            if config.modlist[mod] == 0: # check if the module is disabled
-                config.modlist[mod] = 1 # enable the module
+        if mod in modlist: # check if the module is in config.py dictionary
+            if modlist[mod] == 0: # check if the module is disabled
+                modlist[mod] = 1 # enable the module
                 await bot.say('Enabled ' + mod)
                 print('Enabled ' + mod)
             else: # modlist[mod] == 1
@@ -38,6 +39,10 @@ async def enable(mod = ''):
         else: # module is not in config.py dictionary
             await bot.say(mod + ' was not found in config.py')
 
+#########################################################
+# the enable function changes the modlist[mod] value to 1, as a flag
+# still gotta check the flag on mod's side
+#########################################################
 
 # disable module
 

@@ -1,1 +1,0 @@
-from ping.ping import *
