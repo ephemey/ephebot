@@ -2,17 +2,10 @@ import discord, asyncio, logging
 from discord.ext import commands
 from discord.ext.commands import Bot
 from config import *
-
+from ping import *
 
 # logging
 logging.basicConfig(level=logging.INFO)
-
-# ask for token
-# token = input('bot token: ')
-token = "NDA4NDYwOTU0NzgzNzExMjMy.DVzywA.27Ee8-s06s7PUW7SVHBtpibQ2s4"
-
-# set bot commmand prefix
-bot = commands.Bot(command_prefix=';')
 
 # on bot initiation
 @bot.event
@@ -31,7 +24,7 @@ async def enable(mod = ''):
     else:
         if mod in modlist: # check if the module is in config.py dictionary
             if modlist[mod] == 0: # check if the module is disabled
-                modlist[mod] = 1 # enable the module
+                modlist[mod] += 1 # enable the module
                 await bot.say('Enabled ' + mod)
                 print('Enabled ' + mod)
             else: # modlist[mod] == 1
