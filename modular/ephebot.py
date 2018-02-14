@@ -4,6 +4,9 @@ from discord.ext.commands import Bot
 from config import *
 from ping import *
 
+# link to invite bot 
+# https://discordapp.com/oauth2/authorize?client_id=408460954783711232&scope=bot
+
 # logging
 logging.basicConfig(level=logging.INFO)
 
@@ -42,6 +45,12 @@ async def enable(mod = ''):
 # reload module ..?
 
 # bot restart command ..?
+
+# shutdown 
+@bot.command()
+async def part():
+    print("Shutting down...")
+    exit()
 
 
 
