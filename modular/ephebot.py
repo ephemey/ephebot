@@ -98,8 +98,8 @@ async def reload(mod = ''):
 async def part():
     await bot.say('Bye')
     print('Shutting down...')
+    bot.logout()
     quit()
-
 
 
 bot.run(token)
